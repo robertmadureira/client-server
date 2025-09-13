@@ -4,7 +4,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 
-class Cliente
+class Client
 {
     static void Main()
     {

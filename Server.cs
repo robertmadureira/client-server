@@ -6,7 +6,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 
-class Servidor
+class Server
 {
     static TcpListener listener; static ConcurrentDictionary<string, TcpClient> clientes = new();
 
