@@ -6,13 +6,15 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 
+using System.Threading.Tasks;
+
 class Server
 {
     static TcpListener listener;
     static ConcurrentDictionary<string, TcpClient> clientes = new();
     static ConcurrentDictionary<string, ConcurrentBag<string>> grupos = new(); // grupo -> membros
 
-    static void Main()
+    static async Task Main()
     {
         listener = new TcpListener(IPAddress.Any, 5000);
         listener.Start();
@@ -20,27 +22,25 @@ class Server
 
         while (true)
         {
-            TcpClient cliente = listener.AcceptTcpClient();
-            Thread t = new Thread(HandleClient);
-            t.Start(cliente);
+            TcpClient cliente = await listener.AcceptTcpClientAsync();
+            _ = HandleClientAsync(cliente); // fire and forget
         }
     }
 
-    static void HandleClient(object obj)
+    static async Task HandleClientAsync(TcpClient cliente)
     {
-        TcpClient cliente = (TcpClient)obj;
         NetworkStream stream = cliente.GetStream();
         StreamReader reader = new StreamReader(stream, Encoding.UTF8);
         StreamWriter writer = new StreamWriter(stream, Encoding.UTF8) { AutoFlush = true };
 
-        string username = reader.ReadLine();
+        string username = await reader.ReadLineAsync();
         clientes.TryAdd(username, cliente);
         Console.WriteLine($"{username} conectado.");
 
         try
         {
             string linha;
-            while ((linha = reader.ReadLine()) != null)
+            while ((linha = await reader.ReadLineAsync()) != null)
             {
                 // Comando para criar grupo: criargrupo:nomegrupo:membro1,membro2,...
                 if (linha.StartsWith("/criargrupo:"))
@@ -48,7 +48,7 @@ class Server
                     var partes = linha.Split(':', 3);
                     if (partes.Length < 3)
                     {
-                        writer.WriteLine("Uso: /criargrupo:nomegrupo:membro1,membro2,...");
+                        await writer.WriteLineAsync("Uso: /criargrupo:nomegrupo:membro1,membro2,...");
                         continue;
                     }
                     string nomeGrupo = partes[1];
@@ -56,7 +56,7 @@ class Server
                     var bag = new ConcurrentBag<string>(membros);
                     if (!bag.Contains(username)) bag.Add(username); // adiciona o criador
                     grupos[nomeGrupo] = bag;
-                    writer.WriteLine($"Grupo '{nomeGrupo}' criado com membros: {string.Join(", ", bag)}");
+                    await writer.WriteLineAsync($"Grupo '{nomeGrupo}' criado com membros: {string.Join(", ", bag)}");
                     continue;
                 }
 
@@ -66,7 +66,7 @@ class Server
                     var partes = linha.Split(':', 3);
                     if (partes.Length < 3)
                     {
-                        writer.WriteLine("Uso: grupo:nomegrupo:mensagem");
+                        await writer.WriteLineAsync("Uso: grupo:nomegrupo:mensagem");
                         continue;
                     }
                     string nomeGrupo = partes[1];
@@ -80,16 +80,16 @@ class Server
                                 try
                                 {
                                     StreamWriter destinoWriter = new StreamWriter(destinoCliente.GetStream(), Encoding.UTF8) { AutoFlush = true };
-                                    destinoWriter.WriteLine($"[Grupo {nomeGrupo}] {username}: {mensagem}");
+                                    await destinoWriter.WriteLineAsync($"[Grupo {nomeGrupo}] {username}: {mensagem}");
                                 }
                                 catch { }
                             }
                         }
-                        writer.WriteLine($"Mensagem enviada ao grupo '{nomeGrupo}'.");
+                        await writer.WriteLineAsync($"Mensagem enviada ao grupo '{nomeGrupo}'.");
                     }
                     else
                     {
-                        writer.WriteLine($"Grupo '{nomeGrupo}' não existe.");
+                        await writer.WriteLineAsync($"Grupo '{nomeGrupo}' não existe.");
                     }
                     continue;
                 }
@@ -103,7 +103,7 @@ class Server
                 if (clientes.TryGetValue(destino, out TcpClient destinoClientePriv))
                 {
                     StreamWriter destinoWriter = new StreamWriter(destinoClientePriv.GetStream(), Encoding.UTF8) { AutoFlush = true };
-                    destinoWriter.WriteLine($"{username}: {mensagemPriv}");
+                    await destinoWriter.WriteLineAsync($"{username}: {mensagemPriv}");
                 }
             }
         }
