@@ -34,6 +34,9 @@ dotnet run --project Cliente/Cliente/Client.csproj
 
 Siga as instruções no terminal para informar o IP do servidor e seu nome de usuário.
 
+### linux
+dotnet publish -c Release -r linux-x64 --self-contained
+
 ## Comandos do Cliente
 
 - **Mensagem privada:**
@@ -79,8 +82,7 @@ client-server/
 ```
 
 ## Requisitos
-- .NET 6.0 ou superior
+- .NET 8.0 ou superior
 
 ---
 Desenvolvido para fins didáticos.
-# client-server

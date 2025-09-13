@@ -1,12 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\rmadureira\\Documents\\UFG\\simple-client-server-with-sockets-2\\client-server\\Cliente\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{289FF684-FA9C-40CC-80CC-B20D124579BD}|Cliente\\Cliente.csproj|c:\\users\\rmadureira\\documents\\ufg\\simple-client-server-with-sockets-2\\client-server\\cliente\\cliente\\client.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{289FF684-FA9C-40CC-80CC-B20D124579BD}|Cliente\\Cliente.csproj|solutionrelative:cliente\\client.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -14,7 +9,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 24,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -111,19 +106,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:138:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Client.cs",
-              "DocumentMoniker": "C:\\Users\\rmadureira\\Documents\\UFG\\simple-client-server-with-sockets-2\\client-server\\Cliente\\Cliente\\Client.cs",
-              "RelativeDocumentMoniker": "Cliente\\Client.cs",
-              "ToolTip": "C:\\Users\\rmadureira\\Documents\\UFG\\simple-client-server-with-sockets-2\\client-server\\Cliente\\Cliente\\Client.cs",
-              "RelativeToolTip": "Cliente\\Client.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-13T19:42:47.615Z",
-              "EditorCaption": ""
             }
           ]
         },

@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "VYtjoGgPH0s=",
+  "dgSpecHash": "0atqciY+nIE=",
   "success": true,
   "projectFilePath": "C:\\Users\\rmadureira\\Documents\\UFG\\simple-client-server-with-sockets-2\\client-server\\Servidor\\Servidor\\Servidor.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\rmadureira\\.nuget\\packages\\microsoft.netcore.app.runtime.linux-x64\\8.0.18\\microsoft.netcore.app.runtime.linux-x64.8.0.18.nupkg.sha512",
+    "C:\\Users\\rmadureira\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.linux-x64\\8.0.18\\microsoft.aspnetcore.app.runtime.linux-x64.8.0.18.nupkg.sha512",
+    "C:\\Users\\rmadureira\\.nuget\\packages\\microsoft.netcore.app.host.linux-x64\\8.0.18\\microsoft.netcore.app.host.linux-x64.8.0.18.nupkg.sha512"
+  ],
   "logs": []
 }
