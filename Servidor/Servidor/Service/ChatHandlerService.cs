@@ -29,6 +29,12 @@ namespace Servidor.Service
                 string linha;
                 while ((linha = await reader.ReadLineAsync()) != null)
                 {
+                    if (linha == "/usuarios")
+                    {
+                        var online = string.Join(", ", clientes.Keys);
+                        await writer.WriteLineAsync($"Usuários online: {online}");
+                        continue;
+                    }
                     // Comando para baixar arquivo
                     if (linha.StartsWith("/baixar "))
                     {
@@ -140,13 +146,6 @@ namespace Servidor.Service
                     {
                         StreamWriter destinoWriter = new StreamWriter(destinoClientePriv.GetStream(), Encoding.UTF8) { AutoFlush = true };
                         await destinoWriter.WriteLineAsync($"{username}: {mensagemPriv}");
-                    }
-
-                    if (linha == "/usuarios")
-                    {
-                        var online = string.Join(", ", clientes.Keys);
-                        await writer.WriteLineAsync($"Usuários online: {online}");
-                        continue;
                     }
                 }
             }
