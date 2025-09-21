@@ -39,8 +39,10 @@ namespace Cliente.Service
 
             Console.WriteLine("\nComandos:");
             Console.WriteLine("/privado <usuario> <mensagem>  - Envia mensagem privada");
+            Console.WriteLine("/privado <usuario> <mensagem> /arquivo <caminho>  - Envia arquivo em mensagem privada");
             Console.WriteLine("/criargrupo <nomegrupo> <membro1,membro2,...>  - Cria um grupo");
             Console.WriteLine("/grupo <nomegrupo> <mensagem>  - Envia mensagem para o grupo");
+            Console.WriteLine("/grupo <nomegrupo> <mensagem> /arquivo <caminho>  - Envia arquivo para o grupo");
             Console.WriteLine("/usuarios  - Lista usuários online");
             Console.WriteLine("/sair  - Encerra o programa");
 
