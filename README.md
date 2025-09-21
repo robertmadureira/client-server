@@ -1,23 +1,12 @@
- 
-# Simple Client-Server Chat with Groups
 
-Este projeto implementa um sistema de chat simples em C# utilizando sockets TCP, com suporte a mensagens privadas e grupos.
+## Como rodar o servidor na AWS (Ubuntu)
 
-## Funcionalidades
+### 1. Configuração da instância
+- Crie uma instância EC2 Ubuntu.
+- No grupo de segurança, libere a porta TCP 5000 para entrada.
 
-- **Conexão Cliente-Servidor**: O servidor gerencia conexões simultâneas de múltiplos clientes.
-- **Autenticação Simples**: O usuário informa um nome de usuário ao conectar.
-- **Mensagens Privadas**: Envie mensagens diretamente para outro usuário conectado.
-- **Mensagens em Grupo**: Crie grupos e envie mensagens para todos os membros do grupo.
-- **Concorrência**: O servidor utiliza async/await para gerenciar múltiplas conexões de forma eficiente.
-
-## Como Usar
-
-### 1. Compilação
-Compile os projetos `Servidor` e `Cliente` separadamente usando o Visual Studio ou o comando `dotnet build`.
-
-### 2. Execução do Servidor
-Execute o servidor:
+### 2. Instalação de dependências
+Conecte via terminal SSH e execute:
 
 ```
 dotnet run --project Servidor/Servidor/Server.csproj
@@ -25,16 +14,36 @@ dotnet run --project Servidor/Servidor/Server.csproj
 
 O servidor ficará aguardando conexões na porta 5000.
 
+### 3. Clone o projeto
+
+```
+
 ### 3. Execução do Cliente
 Execute o cliente:
 
+
+### 4. Publicação e execução
+
+```
 ```
 dotnet run --project Cliente/Cliente/Client.csproj
 ```
 
 Siga as instruções no terminal para informar o IP do servidor e seu nome de usuário.
 
+O servidor ficará aguardando conexões na porta 5000.
+
+---
+
+## Como rodar o cliente
+
+Compile e execute o cliente localmente (Windows/Linux):
+
+```
+
 ### linux
+
+Siga as instruções no terminal para informar o IP público da instância AWS e seu nome de usuário.
 dotnet publish -c Release -r linux-x64 --self-contained
 
 ## Comandos do Cliente
@@ -68,16 +77,25 @@ dotnet publish -c Release -r linux-x64 --self-contained
 - Apenas usuários conectados recebem mensagens.
 - O sistema não implementa autenticação forte nem criptografia.
 
+
 ## Estrutura do Projeto
 
 ```
 client-server/
 ├── Cliente/
 │   └── Cliente/
-│       └── Client.cs
+│       ├── Program.cs
+│       ├── Service/
+│       │   └── ClientService.cs
+│       └── Interface/
+│           └── IClientService.cs
 ├── Servidor/
 │   └── Servidor/
-│       └── Server.cs
+│       ├── Program.cs
+│       ├── Service/
+│       │   └── ChatHandlerService.cs
+│       └── Interface/
+│           └── IChatHandlerService.cs
 └── README.md
 ```
 
