@@ -1,7 +1,28 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\rmadureira\\Documents\\UFG\\simple-client-server-with-sockets-2\\client-server\\Cliente\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{289FF684-FA9C-40CC-80CC-B20D124579BD}|Cliente\\Cliente.csproj|c:\\users\\rmadureira\\documents\\ufg\\simple-client-server-with-sockets-2\\client-server\\cliente\\cliente\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{289FF684-FA9C-40CC-80CC-B20D124579BD}|Cliente\\Cliente.csproj|solutionrelative:cliente\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{289FF684-FA9C-40CC-80CC-B20D124579BD}|Cliente\\Cliente.csproj|c:\\users\\rmadureira\\documents\\ufg\\simple-client-server-with-sockets-2\\client-server\\cliente\\cliente\\interface\\ichatclientservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{289FF684-FA9C-40CC-80CC-B20D124579BD}|Cliente\\Cliente.csproj|solutionrelative:cliente\\interface\\ichatclientservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{289FF684-FA9C-40CC-80CC-B20D124579BD}|Cliente\\Cliente.csproj|c:\\users\\rmadureira\\documents\\ufg\\simple-client-server-with-sockets-2\\client-server\\cliente\\cliente\\service\\chatclientservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{289FF684-FA9C-40CC-80CC-B20D124579BD}|Cliente\\Cliente.csproj|solutionrelative:cliente\\service\\chatclientservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{289FF684-FA9C-40CC-80CC-B20D124579BD}|Cliente\\Cliente.csproj|c:\\users\\rmadureira\\documents\\ufg\\simple-client-server-with-sockets-2\\client-server\\cliente\\cliente\\service\\clientservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{289FF684-FA9C-40CC-80CC-B20D124579BD}|Cliente\\Cliente.csproj|solutionrelative:cliente\\service\\clientservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{289FF684-FA9C-40CC-80CC-B20D124579BD}|Cliente\\Cliente.csproj|c:\\users\\rmadureira\\documents\\ufg\\simple-client-server-with-sockets-2\\client-server\\cliente\\cliente\\interface\\iclientservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{289FF684-FA9C-40CC-80CC-B20D124579BD}|Cliente\\Cliente.csproj|solutionrelative:cliente\\interface\\iclientservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 28,
           "Children": [
             {
               "$type": "Bookmark",
@@ -106,6 +127,71 @@
             {
               "$type": "Bookmark",
               "Name": "ST:138:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "IClientService.cs",
+              "DocumentMoniker": "C:\\Users\\rmadureira\\Documents\\UFG\\simple-client-server-with-sockets-2\\client-server\\Cliente\\Cliente\\Interface\\IClientService.cs",
+              "RelativeDocumentMoniker": "Cliente\\Interface\\IClientService.cs",
+              "ToolTip": "C:\\Users\\rmadureira\\Documents\\UFG\\simple-client-server-with-sockets-2\\client-server\\Cliente\\Cliente\\Interface\\IClientService.cs",
+              "RelativeToolTip": "Cliente\\Interface\\IClientService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAgAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-21T14:29:55.364Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ClientService.cs",
+              "DocumentMoniker": "C:\\Users\\rmadureira\\Documents\\UFG\\simple-client-server-with-sockets-2\\client-server\\Cliente\\Cliente\\Service\\ClientService.cs",
+              "RelativeDocumentMoniker": "Cliente\\Service\\ClientService.cs",
+              "ToolTip": "C:\\Users\\rmadureira\\Documents\\UFG\\simple-client-server-with-sockets-2\\client-server\\Cliente\\Cliente\\Service\\ClientService.cs",
+              "RelativeToolTip": "Cliente\\Service\\ClientService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-21T14:29:38.23Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ChatClientService.cs",
+              "DocumentMoniker": "C:\\Users\\rmadureira\\Documents\\UFG\\simple-client-server-with-sockets-2\\client-server\\Cliente\\Cliente\\Service\\ChatClientService.cs",
+              "RelativeDocumentMoniker": "Cliente\\Service\\ChatClientService.cs",
+              "ToolTip": "C:\\Users\\rmadureira\\Documents\\UFG\\simple-client-server-with-sockets-2\\client-server\\Cliente\\Cliente\\Service\\ChatClientService.cs",
+              "RelativeToolTip": "Cliente\\Service\\ChatClientService.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAqwDsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-21T14:23:46.857Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "IChatClientService.cs",
+              "DocumentMoniker": "C:\\Users\\rmadureira\\Documents\\UFG\\simple-client-server-with-sockets-2\\client-server\\Cliente\\Cliente\\Interface\\IChatClientService.cs",
+              "RelativeDocumentMoniker": "Cliente\\Interface\\IChatClientService.cs",
+              "ToolTip": "C:\\Users\\rmadureira\\Documents\\UFG\\simple-client-server-with-sockets-2\\client-server\\Cliente\\Cliente\\Interface\\IChatClientService.cs",
+              "RelativeToolTip": "Cliente\\Interface\\IChatClientService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-21T14:22:55.635Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\rmadureira\\Documents\\UFG\\simple-client-server-with-sockets-2\\client-server\\Cliente\\Cliente\\Program.cs",
+              "RelativeDocumentMoniker": "Cliente\\Program.cs",
+              "ToolTip": "C:\\Users\\rmadureira\\Documents\\UFG\\simple-client-server-with-sockets-2\\client-server\\Cliente\\Cliente\\Program.cs",
+              "RelativeToolTip": "Cliente\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-21T14:22:13.664Z",
+              "EditorCaption": ""
             }
           ]
         },
