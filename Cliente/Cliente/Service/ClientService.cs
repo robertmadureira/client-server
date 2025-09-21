@@ -136,6 +136,17 @@ namespace Cliente.Service
                 {
                     await chatService.SendAsync("/usuarios");
                 }
+                else if (entrada.StartsWith("/baixar "))
+                {
+                    var partes = entrada.Split(' ', 2);
+                    if (partes.Length < 2)
+                    {
+                        Console.WriteLine("Uso: /baixar <nome-do-arquivo>");
+                        continue;
+                    }
+                    string nomeArquivo = partes[1].Trim();
+                    await chatService.SendAsync($"/baixar {nomeArquivo}");
+                }
                 else
                 {
                     Console.WriteLine("Comando não reconhecido.");
