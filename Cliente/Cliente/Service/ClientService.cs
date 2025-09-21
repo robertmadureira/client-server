@@ -41,6 +41,7 @@ namespace Cliente.Service
             Console.WriteLine("/privado <usuario> <mensagem>  - Envia mensagem privada");
             Console.WriteLine("/criargrupo <nomegrupo> <membro1,membro2,...>  - Cria um grupo");
             Console.WriteLine("/grupo <nomegrupo> <mensagem>  - Envia mensagem para o grupo");
+            Console.WriteLine("/usuarios  - Lista usuários online");
             Console.WriteLine("/sair  - Encerra o programa");
 
             while (true)
@@ -89,6 +90,11 @@ namespace Cliente.Service
                     string nomeGrupo = partes[1];
                     string mensagem = partes[2];
                     await chatService.SendAsync($"grupo:{nomeGrupo}:{mensagem}");
+                }
+                else if (entrada == "/usuarios")
+                {
+                    await chatService.SendAsync("/usuarios");
+                    // A resposta será exibida pelo listener
                 }
                 else
                 {

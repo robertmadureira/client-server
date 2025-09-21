@@ -92,6 +92,13 @@ namespace Servidor.Service
                         StreamWriter destinoWriter = new StreamWriter(destinoClientePriv.GetStream(), Encoding.UTF8) { AutoFlush = true };
                         await destinoWriter.WriteLineAsync($"{username}: {mensagemPriv}");
                     }
+
+                    if (linha == "/usuarios")
+                    {
+                        var online = string.Join(", ", clientes.Keys);
+                        await writer.WriteLineAsync($"Usuários online: {online}");
+                        continue;
+                    }
                 }
             }
             catch { }
@@ -107,7 +114,7 @@ namespace Servidor.Service
                 }
             }
             cliente.Close();
-            Console.WriteLine($"{username} desconectado.");
+            Console.WriteLine($"Usuário {username} desconectado.");
         }
     }
 }
