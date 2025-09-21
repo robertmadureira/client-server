@@ -121,7 +121,7 @@ namespace Servidor.Service
                         await destinoWriter.WriteLineAsync($"{username}: {mensagemPriv}");
                     }
 
-                    if (linha == "/usuarios")
+                    if (linha.StartsWith("/usuarios"))
                     {
                         var online = string.Join(", ", clientes.Keys);
                         await writer.WriteLineAsync($"Usuários online: {online}");
