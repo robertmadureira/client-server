@@ -65,7 +65,26 @@ namespace Cliente.Service
                     }
                     string destino = partes[1];
                     string mensagem = partes[2];
-                    await chatService.SendAsync($"{destino}:{mensagem}");
+
+                    if (mensagem.Contains("/arquivo "))
+                    {
+                        var msgPartes = mensagem.Split(new[] { "/arquivo " }, StringSplitOptions.None);
+                        string texto = msgPartes[0].Trim();
+                        string caminho = msgPartes[1].Trim();
+                        if (!File.Exists(caminho))
+                        {
+                            Console.WriteLine("Arquivo não encontrado.");
+                            continue;
+                        }
+                        byte[] bytes = File.ReadAllBytes(caminho);
+                        string base64 = Convert.ToBase64String(bytes);
+                        string nomeArquivo = Path.GetFileName(caminho);
+                        await chatService.SendAsync($"{destino}:{texto}:/arquivo:{nomeArquivo}:{base64}");
+                    }
+                    else
+                    {
+                        await chatService.SendAsync($"{destino}:{mensagem}");
+                    }
                 }
                 else if (entrada.StartsWith("/criargrupo "))
                 {
@@ -89,7 +108,26 @@ namespace Cliente.Service
                     }
                     string nomeGrupo = partes[1];
                     string mensagem = partes[2];
-                    await chatService.SendAsync($"grupo:{nomeGrupo}:{mensagem}");
+                    
+                    if (mensagem.Contains("/arquivo "))
+                    {
+                        var msgPartes = mensagem.Split(new[] { "/arquivo " }, StringSplitOptions.None);
+                        string texto = msgPartes[0].Trim();
+                        string caminho = msgPartes[1].Trim();
+                        if (!File.Exists(caminho))
+                        {
+                            Console.WriteLine("Arquivo não encontrado.");
+                            continue;
+                        }
+                        byte[] bytes = File.ReadAllBytes(caminho);
+                        string base64 = Convert.ToBase64String(bytes);
+                        string nomeArquivo = Path.GetFileName(caminho);
+                        await chatService.SendAsync($"grupo:{nomeGrupo}:{texto}:/arquivo:{nomeArquivo}:{base64}");
+                    }
+                    else
+                    {
+                        await chatService.SendAsync($"grupo:{nomeGrupo}:{mensagem}");
+                    }
                 }
                 else if (entrada == "/usuarios")
                 {

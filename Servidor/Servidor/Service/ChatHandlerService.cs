@@ -58,6 +58,21 @@ namespace Servidor.Service
                         }
                         string nomeGrupo = partes[1];
                         string mensagem = partes[2];
+
+                        // Verifica se há arquivo na mensagem de grupo
+                        if (mensagem.Contains("/arquivo:"))
+                        {
+                            var msgPartes = mensagem.Split(new[] { "/arquivo:" }, StringSplitOptions.None);
+                            string texto = msgPartes[0].Trim();
+                            var arquivoPartes = msgPartes[1].Split(':', 2);
+                            string nomeArquivo = arquivoPartes[0];
+                            string base64 = arquivoPartes[1];
+                            byte[] bytes = Convert.FromBase64String(base64);
+                            System.IO.Directory.CreateDirectory("uploads");
+                            System.IO.File.WriteAllBytes(System.IO.Path.Combine("uploads", nomeArquivo), bytes);
+                            mensagem = $"{texto} [Arquivo '{nomeArquivo}' recebido]";
+                        }
+
                         if (grupos.TryGetValue(nomeGrupo, out var membros))
                         {
                             foreach (var membro in membros)
@@ -86,6 +101,19 @@ namespace Servidor.Service
                     if (partesPriv.Length < 2) continue;
                     string destino = partesPriv[0];
                     string mensagemPriv = partesPriv[1];
+
+                    if (mensagemPriv.Contains("/arquivo:"))
+                    {
+                        var msgPartes = mensagemPriv.Split(new[] { "/arquivo:" }, StringSplitOptions.None);
+                        string texto = msgPartes[0].Trim();
+                        var arquivoPartes = msgPartes[1].Split(':', 2);
+                        string nomeArquivo = arquivoPartes[0];
+                        string base64 = arquivoPartes[1];
+                        byte[] bytes = Convert.FromBase64String(base64);
+                        Directory.CreateDirectory("uploads");
+                        File.WriteAllBytes(Path.Combine("uploads", nomeArquivo), bytes);
+                        mensagemPriv = $"{texto} [Arquivo '{nomeArquivo}' recebido]";
+                    }
 
                     if (clientes.TryGetValue(destino, out TcpClient destinoClientePriv))
                     {
