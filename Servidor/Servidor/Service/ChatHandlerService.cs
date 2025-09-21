@@ -29,6 +29,28 @@ namespace Servidor.Service
                 string linha;
                 while ((linha = await reader.ReadLineAsync()) != null)
                 {
+                    // Comando para baixar arquivo
+                    if (linha.StartsWith("/baixar "))
+                    {
+                        var partes = linha.Split(' ', 2);
+                        if (partes.Length < 2)
+                        {
+                            await writer.WriteLineAsync("Uso: /baixar <nome-do-arquivo>");
+                            continue;
+                        }
+                        string nomeArquivo = partes[1].Trim();
+                        string caminho = System.IO.Path.Combine("uploads", nomeArquivo);
+                        if (!System.IO.File.Exists(caminho))
+                        {
+                            await writer.WriteLineAsync($"Arquivo '{nomeArquivo}' não encontrado no servidor.");
+                            continue;
+                        }
+                        byte[] bytes = System.IO.File.ReadAllBytes(caminho);
+                        string base64 = Convert.ToBase64String(bytes);
+                        await writer.WriteLineAsync($"/arquivo:{nomeArquivo}:{base64}");
+                        continue;
+                    }
+
                     // Criar grupo
                     if (linha.StartsWith("/criargrupo:"))
                     {
@@ -67,9 +89,8 @@ namespace Servidor.Service
                             var arquivoPartes = msgPartes[1].Split(':', 2);
                             string nomeArquivo = arquivoPartes[0];
                             string base64 = arquivoPartes[1];
-                            byte[] bytes = Convert.FromBase64String(base64);
                             System.IO.Directory.CreateDirectory("uploads");
-                            System.IO.File.WriteAllBytes(System.IO.Path.Combine("uploads", nomeArquivo), bytes);
+                            System.IO.File.WriteAllBytes(System.IO.Path.Combine("uploads", nomeArquivo), Convert.FromBase64String(base64));
                             mensagem = $"{texto} [Arquivo '{nomeArquivo}' recebido]";
                         }
 
@@ -110,8 +131,8 @@ namespace Servidor.Service
                         string nomeArquivo = arquivoPartes[0];
                         string base64 = arquivoPartes[1];
                         byte[] bytes = Convert.FromBase64String(base64);
-                        Directory.CreateDirectory("uploads");
-                        File.WriteAllBytes(Path.Combine("uploads", nomeArquivo), bytes);
+                        System.IO.Directory.CreateDirectory("uploads");
+                        System.IO.File.WriteAllBytes(System.IO.Path.Combine("uploads", nomeArquivo), bytes);
                         mensagemPriv = $"{texto} [Arquivo '{nomeArquivo}' recebido]";
                     }
 
@@ -121,7 +142,7 @@ namespace Servidor.Service
                         await destinoWriter.WriteLineAsync($"{username}: {mensagemPriv}");
                     }
 
-                    if (linha.StartsWith("/usuarios"))
+                    if (linha == "/usuarios")
                     {
                         var online = string.Join(", ", clientes.Keys);
                         await writer.WriteLineAsync($"Usuários online: {online}");

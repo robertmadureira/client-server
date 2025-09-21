@@ -44,6 +44,7 @@ namespace Cliente.Service
             Console.WriteLine("/grupo <nomegrupo> <mensagem>  - Envia mensagem para o grupo");
             Console.WriteLine("/grupo <nomegrupo> <mensagem> /arquivo <caminho>  - Envia arquivo para o grupo");
             Console.WriteLine("/usuarios  - Lista usuários online");
+            Console.WriteLine("/baixar <nome-do-arquivo>  - Baixa arquivo recebido do servidor");
             Console.WriteLine("/sair  - Encerra o programa");
 
             while (true)
@@ -134,7 +135,6 @@ namespace Cliente.Service
                 else if (entrada == "/usuarios")
                 {
                     await chatService.SendAsync("/usuarios");
-                    // A resposta será exibida pelo listener
                 }
                 else
                 {
